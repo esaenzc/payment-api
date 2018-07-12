@@ -71,7 +71,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>fundtrade</finalName>
+		<finalName>payment-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
