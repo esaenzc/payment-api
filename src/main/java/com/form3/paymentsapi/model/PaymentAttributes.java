@@ -12,21 +12,35 @@ import java.util.Date;
 @JsonDeserialize(builder = PaymentAttributes.Builder.class)
 public class PaymentAttributes {
     private String amount;
+    @JsonProperty("beneficiary_party")
     private BeneficiaryParty beneficiaryParty;
+    @JsonProperty("charges_information")
     private ChargesInformation chargesInformation;
     private String currency;
+    @JsonProperty("debtor_party")
     private DebtorParty debtorParty;
+    @JsonProperty("end_to_end_reference")
     private String endToEndReference;
     private Fx fx;
+    @JsonProperty("numeric_reference")
     private Integer numericReference;
+    @JsonProperty("payment_id")
     private Long paymentId;
+    @JsonProperty("payment_purpose")
     private String paymentPurpose;
+    @JsonProperty("payment_scheme")
     private String paymentScheme;
+    @JsonProperty("payment_type")
     private String paymentType;
+    @JsonProperty("processing_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date processingDate;
     private String reference;
+    @JsonProperty("scheme_payment_sub_type")
     private String schemePaymentSubType;
+    @JsonProperty("scheme_payment_type")
     private String schemePaymentType;
+    @JsonProperty("sponsor_party")
     private SponsorParty sponsorParty;
 
     private PaymentAttributes () {}

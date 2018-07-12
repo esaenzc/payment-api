@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "payment")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonDeserialize(builder = Payment.Builder.class)
+@JsonSerialize
 public class Payment {
 
     public Payment () {
@@ -25,6 +27,7 @@ public class Payment {
     private String id;
     private String type;
     private Integer version;
+    @JsonProperty("organisation_id")
     private String organisationId;
     private PaymentAttributes attributes;
 
