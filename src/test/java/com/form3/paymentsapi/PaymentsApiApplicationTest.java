@@ -41,7 +41,7 @@ public class PaymentsApiApplicationTest {
 	}
 
 	@Test
-	public void createPaymentsParallelAsyncNonBloking() throws IOException {
+	public void whenCreatePaymentsParallelAsyncNonBlokingThenReturnPayments() throws IOException {
 		JsonDummy.PAYMENTS.parallelStream().forEach(paymentDummy -> {
 			try {
 				Payment payment = objectMapper.readValue(paymentDummy, Payment.class);
@@ -64,7 +64,7 @@ public class PaymentsApiApplicationTest {
 	}
 
 	@Test
-	public void findPayments() throws IOException {
+	public void whenFindAllPaymentsThenReturnAllPayments() throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Payment payment = objectMapper.readValue(JsonDummy.PAYMENTS.get(0), Payment.class);
 
@@ -87,7 +87,7 @@ public class PaymentsApiApplicationTest {
 	}
 
 	@Test
-	public void updatePayment() throws IOException {
+	public void whenUpdatePaymentThenReturnUpdatedPayment() throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Payment payment = objectMapper.readValue(JsonDummy.PAYMENTS.get(0), Payment.class);
 		String newId = "newId";
@@ -117,7 +117,7 @@ public class PaymentsApiApplicationTest {
 	}
 
 	@Test
-	public void deletePayment() throws IOException {
+	public void whenDeletePaymentThenReturnStatusOk() throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Payment payment = objectMapper.readValue(JsonDummy.PAYMENTS.get(0), Payment.class);
 

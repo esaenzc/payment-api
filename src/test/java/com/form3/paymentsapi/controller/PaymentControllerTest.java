@@ -41,13 +41,13 @@ public class PaymentControllerTest {
     private Payment payment;
 
     @Before
-    public void setUp() throws IOException {
+    public void givenSetUp() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         payment = objectMapper.readValue(JsonDummy.PAYMENTS.get(0), Payment.class);
     }
 
     @Test
-    public void createPaymentRest() {
+    public void whenCreatePaymentThenReturnPaymentAndStatusCreated() {
         BDDMockito.given(this.repository.existsById(Mockito.anyString()))
                 .willReturn(Mono.just(false));
         BDDMockito.given(this.repository.save(Mockito.any()))
@@ -66,7 +66,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void createExistingPaymentRest() throws IOException {
+    public void whenCreateExistingPaymentThenReturnStatusConflict() throws IOException {
         BDDMockito.given(this.repository.existsById(Mockito.anyString()))
                 .willReturn(Mono.just(true));
         BDDMockito.given(this.repository.save(Mockito.any()))
@@ -82,7 +82,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void findPaymentByIdRest() throws IOException {
+    public void whenfindPaymentByIdThenReturnPaymentAndStatusOk() throws IOException {
         BDDMockito.given(this.repository.findById(Mockito.anyString()))
                 .willReturn(Mono.just(payment));
 
@@ -95,7 +95,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void findAllPaymentsRest() throws IOException {
+    public void whenFindAllPaymentsThenReturnAllPaymentsAndStatusOk() throws IOException {
         BDDMockito.given(this.repository.findAll())
                 .willReturn(Flux.just(payment));
 
@@ -108,7 +108,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void findAllPaymentsStreamRest() throws IOException {
+    public void whenFindAllPaymentsStreamThenReturnAllPaymentAsEventsAndStatusOk() throws IOException {
         BDDMockito.given(this.repository.findAll())
                 .willReturn(Flux.just(payment));
 
@@ -119,7 +119,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void updateExistingPaymentRest() throws IOException {
+    public void whenUpdateExistingPaymentThenReturnUpdatedPaymentAndStatusOk() throws IOException {
         BDDMockito.given(this.repository.findById(Mockito.anyString()))
                 .willReturn(Mono.just(payment));
         BDDMockito.given(this.repository.save(Mockito.any()))
@@ -134,7 +134,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void updateNonExistingPaymentRest() throws IOException {
+    public void whenUpdateNonExistingPaymentThenReturnStatusNotFound() throws IOException {
         BDDMockito.given(this.repository.findById(Mockito.anyString()))
                 .willReturn(Mono.empty());
 
@@ -148,7 +148,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void deletePaymentRest() throws IOException {
+    public void whenDeletePaymentThenReturnStatusOk() throws IOException {
         BDDMockito.given(this.repository.findById(Mockito.anyString()))
                 .willReturn(Mono.just(payment));
         BDDMockito.given(this.repository.deleteById(Mockito.anyString()))
@@ -161,7 +161,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void deleteNonExistingPaymentRest() throws IOException {
+    public void whenDeleteNonExistingPaymentThenReturnStatusNotFound() throws IOException {
         BDDMockito.given(this.repository.findById(Mockito.anyString()))
                 .willReturn(Mono.empty());
 
