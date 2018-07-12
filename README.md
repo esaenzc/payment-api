@@ -43,6 +43,6 @@ java -jar payment-api.jar --server.port=8090 --server.hostname=http://localhost:
 [Postman request collection to import](payment-api.postman_collection-v2_1.json)
 
 
-## Secuence Diagram
+## Design
 
-![Diagram](diagram.jpg)
+![Design](design.pdf)
