@@ -45,4 +45,4 @@ java -jar payment-api.jar --server.port=8090 --server.hostname=http://localhost:
 
 ## Design
 
-![Design](design.pdf)
+[Design in PDF](design.pdf)
