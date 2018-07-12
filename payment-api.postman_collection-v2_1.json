@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "8e2c9aec-8d5a-4c4e-b99e-b01401b423ed",
+		"name": "payment-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"type\":\"Payment\",\r\n   \"id\":\"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42\",\r\n   \"version\":0,\r\n   \"organisation_id\":\"743d5b63-8e6f-432e-a8fa-c5d8d2ee5fcb\",\r\n   \"attributes\":{  \r\n      \"amount\":\"100.21\",\r\n      \"beneficiary_party\":{  \r\n         \"account_name\":\"W Owens\",\r\n         \"account_number\":\"31926819\",\r\n         \"account_number_code\":\"BBAN\",\r\n         \"account_type\":0,\r\n         \"address\":\"1 The Beneficiary Localtown SE2\",\r\n         \"bank_id\":\"403000\",\r\n         \"bank_id_code\":\"GBDSC\",\r\n         \"name\":\"Wilfred Jeremiah Owens\"\r\n      },\r\n      \"charges_information\":{  \r\n         \"bearer_code\":\"SHAR\",\r\n         \"sender_charges\":[  \r\n            {  \r\n               \"amount\":\"5.00\",\r\n               \"currency\":\"GBP\"\r\n            },\r\n            {  \r\n               \"amount\":\"10.00\",\r\n               \"currency\":\"USD\"\r\n            }\r\n         ],\r\n         \"receiver_charges_amount\":\"1.00\",\r\n         \"receiver_charges_currency\":\"USD\"\r\n      },\r\n      \"currency\":\"GBP\",\r\n      \"debtor_party\":{  \r\n         \"account_name\":\"EJ Brown Black\",\r\n         \"account_number\":\"GB29XABC10161234567801\",\r\n         \"account_number_code\":\"IBAN\",\r\n         \"address\":\"10 Debtor Crescent Sourcetown NE1\",\r\n         \"bank_id\":\"203301\",\r\n         \"bank_id_code\":\"GBDSC\",\r\n         \"name\":\"Emelia Jane Brown\"\r\n      },\r\n      \"end_to_end_reference\":\"Wil piano Jan\",\r\n      \"fx\":{  \r\n         \"contract_reference\":\"FX123\",\r\n         \"exchange_rate\":\"2.00000\",\r\n         \"original_amount\":\"200.42\",\r\n         \"original_currency\":\"USD\"\r\n      },\r\n      \"numeric_reference\":\"1002001\",\r\n      \"payment_id\":\"123456789012345678\",\r\n      \"payment_purpose\":\"Paying for goods/services\",\r\n      \"payment_scheme\":\"FPS\",\r\n      \"payment_type\":\"Credit\",\r\n      \"processing_date\":\"2017-01-18\",\r\n      \"reference\":\"Payment for Em's piano lessons\",\r\n      \"scheme_payment_sub_type\":\"InternetBanking\",\r\n      \"scheme_payment_type\":\"ImmediatePayment\",\r\n      \"sponsor_party\":{  \r\n         \"account_number\":\"56781234\",\r\n         \"bank_id\":\"123123\",\r\n         \"bank_id_code\":\"GBDSC\"\r\n      }\r\n   }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/payment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update payment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"type\":\"Payment2\",\r\n   \"id\":\"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42\",\r\n   \"version\":0,\r\n   \"organisation_id\":\"743d5b63-8e6f-432e-a8fa-c5d8d2ee5fcb\",\r\n   \"attributes\":{  \r\n      \"amount\":\"100.21\",\r\n      \"beneficiary_party\":{  \r\n         \"account_name\":\"W Owens\",\r\n         \"account_number\":\"31926819\",\r\n         \"account_number_code\":\"BBAN\",\r\n         \"account_type\":0,\r\n         \"address\":\"1 The Beneficiary Localtown SE2\",\r\n         \"bank_id\":\"403000\",\r\n         \"bank_id_code\":\"GBDSC\",\r\n         \"name\":\"Wilfred Jeremiah Owens\"\r\n      },\r\n      \"charges_information\":{  \r\n         \"bearer_code\":\"SHAR\",\r\n         \"sender_charges\":[  \r\n            {  \r\n               \"amount\":\"5.00\",\r\n               \"currency\":\"GBP\"\r\n            },\r\n            {  \r\n               \"amount\":\"10.00\",\r\n               \"currency\":\"USD\"\r\n            }\r\n         ],\r\n         \"receiver_charges_amount\":\"1.00\",\r\n         \"receiver_charges_currency\":\"USD\"\r\n      },\r\n      \"currency\":\"GBP\",\r\n      \"debtor_party\":{  \r\n         \"account_name\":\"EJ Brown Black\",\r\n         \"account_number\":\"GB29XABC10161234567801\",\r\n         \"account_number_code\":\"IBAN\",\r\n         \"address\":\"10 Debtor Crescent Sourcetown NE1\",\r\n         \"bank_id\":\"203301\",\r\n         \"bank_id_code\":\"GBDSC\",\r\n         \"name\":\"Emelia Jane Brown\"\r\n      },\r\n      \"end_to_end_reference\":\"Wil piano Jan\",\r\n      \"fx\":{  \r\n         \"contract_reference\":\"FX123\",\r\n         \"exchange_rate\":\"2.00000\",\r\n         \"original_amount\":\"200.42\",\r\n         \"original_currency\":\"USD\"\r\n      },\r\n      \"numeric_reference\":\"1002001\",\r\n      \"payment_id\":\"123456789012345678\",\r\n      \"payment_purpose\":\"Paying for goods/services\",\r\n      \"payment_scheme\":\"FPS\",\r\n      \"payment_type\":\"Credit\",\r\n      \"processing_date\":\"2017-01-18\",\r\n      \"reference\":\"Payment for Em's piano lessons\",\r\n      \"scheme_payment_sub_type\":\"InternetBanking\",\r\n      \"scheme_payment_type\":\"ImmediatePayment\",\r\n      \"sponsor_party\":{  \r\n         \"account_number\":\"56781234\",\r\n         \"bank_id\":\"123123\",\r\n         \"bank_id_code\":\"GBDSC\"\r\n      }\r\n   }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/payment/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find payment by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/payment/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all payments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/payment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete payment by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/payment/4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"4ee3a8d8-ca7b-4290-a52c-dd5b6165ec42"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
